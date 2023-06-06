@@ -1,0 +1,84 @@
+@import "../modules/container";
+
+.header {
+  background: #000;
+  height: 70px;
+  border-bottom: 1px solid #4d4d4d;
+  position: sticky;
+  top: 0;
+
+
+  @media (max-width: 600px) {
+    height: 90px;
+  }
+
+  &__container{
+    @include container(1440px);
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "logo menu";
+    grid-gap: 2.5rem;
+    align-items: center;
+
+    @media (max-width: 600px) {
+      grid-template-areas:
+        "logo logo"
+        "menu menu";
+      grid-gap: 0;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    width: 96px;
+    height: auto;
+
+    @media (max-width: 600px) {
+      margin-top: 0.75rem;
+    }
+  }
+
+  &__menu {
+    grid-area: menu;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+    padding: 0;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    &-link {
+      color: #b2b2b2;
+      text-decoration: none;
+      transition: .25s;
+      font-weight: 400;
+      white-space: nowrap;
+
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__shadow {
+    display: none;
+    position: absolute;
+    right: 0;
+    height: 21px;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+
+
+  }
+}

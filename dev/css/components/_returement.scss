@@ -1,0 +1,73 @@
+@import "../modules/container";
+
+.retirement {
+  background: #000;
+  color: #fff;
+
+  &__container {
+    @include container(1440px);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "text image";
+
+    @media (max-width: 768px) {
+      grid-template-areas:
+      "image image"
+      "text text";
+
+    }
+  }
+
+  &__column-text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+
+    @media (max-width: 768px) {
+      padding-bottom: 3rem;
+
+    }
+  }
+
+  &__main-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__description-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__column-image {
+    grid-area: image;
+
+    @media (max-width: 768px) {
+      width: 60%;
+      height: auto;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    width: 170px;
+    height: 40px;
+    border-radius: 0;
+    border: 1px solid #fff;
+    background: #000;
+    color: #fff;
+    transition: .25s;
+    padding: 0.5rem;
+
+    &:hover {
+      color: #000;
+      background: #fff;
+    }
+  }
+}
